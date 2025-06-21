@@ -1,0 +1,23 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "\"This is for React\"",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tanishq8000/Namaste-React.git"
+  },
+  "keywords": [],
+  "author": "Tanishq Khandewal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tanishq8000/Namaste-React/issues"
+  },
+  "homepage": "https://github.com/tanishq8000/Namaste-React#readme",
+  "devDependencies": {
+    "parcel": "^2.15.2"
+  }
+}
