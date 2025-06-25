@@ -110,10 +110,40 @@ const Header = () => {
     </div>
   );
 };
+
+const RestaurantCard = () => {
+  return (
+    <div className="res-card">
+      <img
+        className="res-logo"
+        alt="Logo Of Restaurant"
+        src="https://dineout-media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/v1668153027/luodkqgbo0vl7qdipviy.webp"
+      />
+      <h3 className="res-name">Friends Cafe</h3>
+      <h5 className="res-type">Cafe, North Indian, Asian</h5>
+      <h5 className="res-rating">4.6⭐</h5>
+      <div className="offer">Flat 10% off on pre-bookings</div>
+    </div>
+  );
+};
+
+const Body = () => {
+  return (
+    <div className="body">
+      <div className="search">Search</div>
+      <div className="res-container">
+        <RestaurantCard />
+        <RestaurantCard />
+      </div>
+    </div>
+  );
+};
+
 const AppLayout = () => {
   return (
     <div className="app">
       <Header />
+      <Body />
     </div>
   );
 };
