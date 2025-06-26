@@ -4,6 +4,11 @@
   border: 1px solid rgb(228, 227, 227);
 }
 
+.app-name {
+  margin-left: -700px;
+  color: orangered;
+}
+
 .logo {
   width: 100px;
 }
@@ -34,8 +39,8 @@
 }
 
 .res-card {
-  width: 300px;
-  height: 290px;
+  width: 20vw;
+  height: 330px;
   background-color: rgb(254, 254, 254);
   border: 1px solid black;
   margin: 10px;
@@ -62,7 +67,20 @@
 
 .res-rating {
   margin-left: 5px;
-  margin-top: 2px;
+  margin-top: 4px;
+  margin-bottom: 2px;
+}
+
+.cost {
+  margin-left: 5px;
+  margin-top: 4px;
+  margin-bottom: 0px;
+}
+
+.deltime {
+  margin-left: 5px;
+  margin-bottom: 2px;
+  margin-top: 4px;
 }
 
 .offer {
@@ -75,4 +93,6 @@
   width: 90%;
   margin-left: 8px;
   padding: 5px;
+  margin-top: 7px;
+  cursor: pointer;
 }
