@@ -1,7 +1,8 @@
 #Namaste React
 
 {
-/\* <div id="parent">
+
+  <div id="parent">
 
   <div id="child">
     <h1>I am a h1 tag</h1>
