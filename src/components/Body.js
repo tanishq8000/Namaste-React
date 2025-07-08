@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import resList from "../utils/mockData";
 import RestaurantCard from "./RestaurantCard";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [restaurantList, setRestaurantList] = useState([]);
@@ -46,6 +46,10 @@ const Body = () => {
   const resetList = () => {
     setRestaurantList(originalList);
   };
+
+  if (restaurantList.length === 0) {
+    return <Shimmer />;
+  }
 
   return (
     <div className="body">

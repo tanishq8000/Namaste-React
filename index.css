@@ -119,3 +119,65 @@
   padding: 5px;
   cursor: pointer;
 }
+
+.shimmer-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  justify-content: flex-start;
+  margin-left: 100px; /* match .res-container */
+}
+
+.shimmer-card {
+  flex: 1 1 22%;
+  max-width: 22%;
+  height: 380px;
+  background-color: rgb(254, 254, 254);
+  border: 1px solid rgb(210, 194, 194);
+  margin: 10px;
+  padding: 5px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 37%, #f0f0f0 63%);
+  background-size: 400% 100%;
+  animation: shimmer 1.2s infinite;
+  border-radius: 4px;
+}
+
+.shimmer-img {
+  width: 100%;
+  height: 50%;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.shimmer-line {
+  height: 14px;
+  margin: 6px 5px;
+}
+
+.shimmer-line.short {
+  width: 60%;
+}
+
+.shimmer-line.medium {
+  width: 80%;
+}
+
+.shimmer-line.long {
+  width: 95%;
+}
+
+.shimmer-offer {
+  margin-top: auto;
+  border-radius: 20px;
+  height: 25px;
+  width: 90%;
+  margin-left: 8px;
+}
