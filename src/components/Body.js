@@ -5,7 +5,6 @@ import Shimmer from "./Shimmer";
 const Body = () => {
   const [restaurantList, setRestaurantList] = useState([]);
   const [originalList, setOriginalList] = useState([]); // for reset
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchData();
@@ -31,8 +30,6 @@ const Body = () => {
       }
     } catch (error) {
       console.error("Failed to fetch data:", error);
-    } finally {
-      setLoading(false);
     }
   };
 
@@ -47,11 +44,9 @@ const Body = () => {
     setRestaurantList(originalList);
   };
 
-  if (restaurantList.length === 0) {
-    return <Shimmer />;
-  }
-
-  return (
+  return restaurantList.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div className="body">
       <div className="filter">
         <button onClick={filterTopRated}>Top Rated Restaurants</button>
@@ -59,13 +54,9 @@ const Body = () => {
       </div>
 
       <div className="res-container">
-        {loading ? (
-          <h2>Loading restaurants...</h2>
-        ) : (
-          restaurantList.map((restaurant) => (
-            <RestaurantCard key={restaurant.info.id} resData={restaurant} />
-          ))
-        )}
+        {restaurantList.map((restaurant) => (
+          <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+        ))}
       </div>
     </div>
   );
