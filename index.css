@@ -186,3 +186,52 @@
   cursor: pointer;
   border-radius: 5px;
 }
+
+.filter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.search-box {
+  padding: 6px 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 200px;
+}
+
+.searchbtn,
+.ratedbtn,
+.resetbtn {
+  padding: 6px 12px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  background-color: #ff7f50;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.searchbtn:hover,
+.ratedbtn:hover,
+.resetbtn:hover {
+  background-color: #e0673e;
+}
+
+.ratedbtn {
+  font-size: 14px;
+}
+
+.resetbtn {
+  margin-left: 0; /* removed as gap handles spacing */
+}

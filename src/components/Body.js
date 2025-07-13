@@ -5,6 +5,8 @@ import Shimmer from "./Shimmer";
 const Body = () => {
   const [restaurantList, setRestaurantList] = useState([]);
   const [originalList, setOriginalList] = useState([]); // for reset
+  const [searchText, setSearchText] = useState("");
+  const [loading, setLoading] = useState(true); // ✅ loading flag
 
   useEffect(() => {
     fetchData();
@@ -30,34 +32,71 @@ const Body = () => {
       }
     } catch (error) {
       console.error("Failed to fetch data:", error);
+    } finally {
+      setLoading(false); // ✅ done loading
     }
   };
 
   const filterTopRated = () => {
-    const filteredList = restaurantList.filter(
-      (res) => res.info?.avgRating > 4
-    );
+    const filteredList = originalList.filter((res) => res.info?.avgRating > 4);
     setRestaurantList(filteredList);
+    setSearchText("");
   };
 
   const resetList = () => {
     setRestaurantList(originalList);
+    setSearchText("");
   };
 
-  return restaurantList.length === 0 ? (
-    <Shimmer />
-  ) : (
+  const handleSearch = () => {
+    const filteredRes = originalList.filter((res) =>
+      res.info.name.toLowerCase().includes(searchText.toLowerCase())
+    );
+    setRestaurantList(filteredRes);
+  };
+
+  // ✅ Show shimmer only while loading
+  if (loading) {
+    return <Shimmer />;
+  }
+
+  return (
     <div className="body">
       <div className="filter">
-        <button onClick={filterTopRated}>Top Rated Restaurants</button>
-        <button onClick={resetList}>Reset</button>
+        <div className="search">
+          <input
+            type="text"
+            className="search-box"
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") handleSearch();
+            }}
+          />
+          <button className="searchbtn" onClick={handleSearch}>
+            Search
+          </button>
+        </div>
+        <button className="ratedbtn" onClick={filterTopRated}>
+          Top Rated Restaurants
+        </button>
+        <button className="resetbtn" onClick={resetList}>
+          Reset
+        </button>
       </div>
 
-      <div className="res-container">
-        {restaurantList.map((restaurant) => (
-          <RestaurantCard key={restaurant.info.id} resData={restaurant} />
-        ))}
-      </div>
+      {/* ✅ Show message when no results */}
+      {restaurantList.length === 0 ? (
+        <h2 style={{ marginTop: "20px", textAlign: "center" }}>
+          No restaurants match your search.
+        </h2>
+      ) : (
+        <div className="res-container">
+          {restaurantList.map((restaurant) => (
+            <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };
