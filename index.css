@@ -235,3 +235,7 @@
 .resetbtn {
   margin-left: 0; /* removed as gap handles spacing */
 }
+
+.errHeading {
+  color: red;
+}
