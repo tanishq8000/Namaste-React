@@ -1,3 +1,17 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  background-color: #f0f2f5; /* A subtle background color */
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
 /* Header styling */
 .header {
   display: flex;
@@ -32,6 +46,9 @@
   list-style: none;
 }
 
+.nav-items > ul > li > a:hover {
+  color: #ef7777;
+}
 /* Search bar */
 .search {
   margin: 10px;
@@ -56,6 +73,11 @@
   margin: 10px;
   padding: 5px;
   box-sizing: border-box;
+}
+
+.res-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 /* Restaurant logo image */
@@ -238,4 +260,129 @@
 
 .errHeading {
   color: red;
+}
+
+/* Center the entire menu card on the page */
+.resDesContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+}
+
+/* --- Menu Card Styles --- */
+
+.menu {
+  width: 50%;
+  min-width: 400px; /* Prevents the menu from getting too narrow on small screens */
+  background-color: #ffffff; /* White background for the card */
+  border-radius: 12px; /* Soft, rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for a card-like effect */
+  padding: 30px; /* Add internal spacing */
+  text-align: center;
+  max-height: 90vh; /* Prevent the menu from becoming taller than the screen */
+  overflow-y: auto; /* Allow scrolling if the menu is too long */
+}
+
+/* --- Header Styles --- */
+
+.menu h1 {
+  font-size: 2.5rem; /* Larger font size for the restaurant name */
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.headerInfo {
+  display: flex; /* Use flex to align the rating and cost on a single line */
+  justify-content: center;
+  gap: 20px; /* Add space between the spans */
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.menu h3 {
+  font-size: 1.5rem;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  color: #333;
+  border-bottom: 1px solid #eee; /* Add a subtle separator line */
+  padding-bottom: 15px;
+}
+
+/* --- Menu List Styles --- */
+
+.menuList {
+  list-style-type: none; /* Remove the bullet points */
+  padding: 0;
+  margin: 0;
+  text-align: left; /* Align the list items to the left again */
+}
+
+.menuItem {
+  border-bottom: 1px solid #f0f0f0; /* Light separator between menu items */
+  padding: 20px 0;
+}
+
+.menuItem:last-child {
+  border-bottom: none; /* No border on the last item */
+}
+
+.itemHeader {
+  display: flex;
+  justify-content: space-between; /* Pushes the name to the left and price to the right */
+  align-items: baseline;
+  margin-bottom: 5px;
+}
+
+.menuItem h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0; /* Remove default margin */
+}
+
+.price {
+  font-weight: 600;
+  color: #555;
+  margin: 0;
+}
+
+.description {
+  font-size: 0.9rem;
+  color: #999;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Base styles for the button */
+.toggle-button {
+  font-family: inherit;
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  background-color: #f7f7f7;
+  color: #555;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  margin: 10px 0;
+}
+
+.toggle-button:hover {
+  background-color: #e9e9e9;
+  border-color: #bbb;
+}
+
+.toggle-button.active {
+  background-color: #4caf50;
+  color: #fff;
+  border-color: #4caf50;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover effect for the active button */
+.toggle-button.active:hover {
+  background-color: #45a049;
 }
