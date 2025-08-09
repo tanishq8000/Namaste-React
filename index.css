@@ -386,3 +386,10 @@ a {
 .toggle-button.active:hover {
   background-color: #45a049;
 }
+
+.user-card {
+  padding: 10px;
+  border: 1px solid black;
+  width: 50%;
+  margin-left: 10px;
+}
