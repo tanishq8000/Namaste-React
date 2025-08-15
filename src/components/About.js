@@ -14,12 +14,19 @@ class AboutClass extends React.Component {
   render() {
     console.log("parent render");
     return (
-      <div>
-        <h1>About Us Page</h1>
-        <h2>This application is all about Online Food Delivery</h2>
-        <UserClass name={"First"} location={"Bengaluru"} />
-        <UserClass name={"Second"} location={"Bengaluru"} />
-        <UserClass name={"Third"} location={"Bengaluru"} />
+      <div className="about-us-container">
+        <h1>About Us</h1>
+        <p>
+          This is a page about our application and the amazing team behind it.
+        </p>
+
+        <div className="team-container">
+          <UserClass
+            name={"Tanishq Khandelwal (from About Us)"}
+            location={"Bengaluru"}
+          />
+          <UserClass name={"Elon Musk"} location={"Mars"} />
+        </div>
       </div>
     );
   }

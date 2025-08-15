@@ -387,9 +387,101 @@ a {
   background-color: #45a049;
 }
 
+/* Container for the user card */
 .user-card {
-  padding: 10px;
-  border: 1px solid black;
-  width: 50%;
-  margin-left: 10px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  margin: 20px;
+  text-align: center;
+  max-width: 400px;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effect to make it feel interactive */
+.user-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Profile image styling */
+.user-card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%; /* Makes the image circular */
+  border: 4px solid #f0f0f0;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+/* Heading styles */
+.user-card h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.user-card h3 {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #666;
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+/* Bio/description styling */
+.user-card h4 {
+  font-size: 0.9rem;
+  color: #888;
+  line-height: 1.5;
+  margin-top: 10px;
+}
+
+/* Optional: Styles for dummy content */
+.user-card h2:nth-of-type(2),
+.user-card h3:nth-of-type(2) {
+  color: #999;
+}
+
+/* Container for the entire About Us page */
+.about-us-container {
+  padding: 40px 20px;
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  background-color: #f8f9fa; /* A very light gray background */
+}
+
+/* Page headings */
+.about-us-container h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.about-us-container p {
+  font-size: 1.2rem;
+  color: #666;
+  max-width: 800px;
+  margin: 0 auto 50px; /* Center the paragraph and add bottom margin */
+  line-height: 1.6;
+}
+
+/* Container for the team members */
+.team-container {
+  display: flex; /* Enables Flexbox for arranging the cards */
+  flex-wrap: wrap; /* Allows cards to wrap to the next line on smaller screens */
+  justify-content: center; /* Centers the cards horizontally */
+  gap: 30px; /* Adds space between the cards */
+  padding: 20px;
 }
