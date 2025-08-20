@@ -1,23 +1,14 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
-import { MENU_API } from "../utils/constant";
 import React from "react";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const RestaurantMenu = () => {
-  const [resInfo, setResInfo] = useState(null);
   const [isVegOnly, setIsVegOnly] = useState(false); // New state for the toggle veg only mode
   const { resId } = useParams();
 
-  useEffect(() => {
-    fetchMenu();
-  }, []);
-
-  const fetchMenu = async () => {
-    const data = await fetch(MENU_API + resId);
-    const json = await data.json();
-    setResInfo(json.data);
-  };
+  const resInfo = useRestaurantMenu(resId);
 
   if (resInfo === null) {
     return <Shimmer />;
@@ -74,7 +65,12 @@ const RestaurantMenu = () => {
                     <li key={item.card.info.id} className="menuItem">
                       <div className="itemHeader">
                         <h4>{item.card.info.name}</h4>
-                        <p className="price">Rs.{item.card.info.price / 100}</p>
+                        <p className="price">
+                          Rs.
+                          {item.card.info.price
+                            ? item.card.info.price / 100
+                            : item.card.info.defaultPrice / 100}
+                        </p>
                       </div>
                       <p className="description">
                         {item.card.info.description}
