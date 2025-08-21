@@ -2,12 +2,16 @@ import { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
+import NoInternetPage from "./NoInternetPage";
 
 const Body = () => {
   const [restaurantList, setRestaurantList] = useState([]);
   const [originalList, setOriginalList] = useState([]); // for reset
   const [searchText, setSearchText] = useState("");
   const [loading, setLoading] = useState(true); // ✅ loading flag
+
+  const onlineStatus = useOnlineStatus();
 
   useEffect(() => {
     fetchData();
@@ -55,6 +59,10 @@ const Body = () => {
     );
     setRestaurantList(filteredRes);
   };
+
+  if (onlineStatus === false) {
+    return <NoInternetPage />;
+  }
 
   // ✅ Show shimmer only while loading
   if (loading) {
