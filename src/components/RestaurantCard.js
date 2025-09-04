@@ -5,13 +5,13 @@ const RestaurantCard = ({ resData }) => {
     resData?.info;
 
   return (
-    <div className="res-card">
+    <div className="flex flex-col justify-start border border-black m-3 pb-2">
       <img
-        className="res-logo"
+        className="w-full h-50"
         alt={`Logo of ${name}`}
         src={RES_URL + cloudinaryImageId}
       />
-      <h3 className="res-name">{name}</h3>
+      <h3 className="pl-2">{name}</h3>
       <h5 className="res-type">
         {cuisines?.slice(0, 3).join(", ") || "Various cuisines"}
       </h5>

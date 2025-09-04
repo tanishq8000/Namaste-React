@@ -5,29 +5,29 @@ const Header = () => {
   const [logBtn, setLogBtn] = useState("Login");
 
   return (
-    <div className="header">
-      <div className="logo-container">
-        <img className="logo" src={LOGO_URL}></img>
+    <div className="flex justify-between items-center bg-red-50">
+      <div>
+        <img className="w-30" src={LOGO_URL}></img>
       </div>
-      <h1 className="app-name">HungerHub</h1>
-      <div className="nav-items">
-        <ul>
-          <li>
+      <h1 className="text-red-500 font-bold text-3xl -ml-150">HungerHub</h1>
+      <div className="flex items-center">
+        <ul className="flex p-6">
+          <li className="px-4 hover:text-red-500">
             <Link to="/">Home</Link>
           </li>
-          <li>
+          <li className="px-4 hover:text-red-500">
             <Link to="/about">About Us</Link>
           </li>
-          <li>
+          <li className="px-4 hover:text-red-500">
             <Link to="/contact">Contact Us</Link>
           </li>
-          <li>
+          <li className="px-4 hover:text-red-500">
             <Link to="/grocery">Grocery</Link>
           </li>
-          <li>Cart</li>
-          <li>
+          <li className="px-4 hover:text-red-500">Cart</li>
+          <li className="px-4">
             <button
-              className="login"
+              className="cursor-pointer bg-gray-200 rounded-sm px-2 border border-black-100"
               onClick={() =>
                 logBtn === "Login" ? setLogBtn("Logout") : setLogBtn("Login")
               }

@@ -70,26 +70,35 @@ const Body = () => {
   }
 
   return (
-    <div className="body">
-      <div className="filter">
+    <div>
+      <div className="flex items-center mt-3">
         <div className="search">
           <input
             type="text"
-            className="search-box"
+            className="p-1 m-3 border border-black-100"
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
             onKeyDown={(e) => {
               if (e.key === "Enter") handleSearch();
             }}
           />
-          <button className="searchbtn" onClick={handleSearch}>
+          <button
+            className="cursor-pointer px-3 py-1 bg-green-200 rounded-md hover:bg-green-300"
+            onClick={handleSearch}
+          >
             Search
           </button>
         </div>
-        <button className="ratedbtn" onClick={filterTopRated}>
+        <button
+          className="cursor-pointer border border-b-2 ml-10 m-4 px-2 rounded-sm py-0.5 bg-orange-300 hover:bg-orange-400"
+          onClick={filterTopRated}
+        >
           Top Rated Restaurants
         </button>
-        <button className="resetbtn" onClick={resetList}>
+        <button
+          className="cursor-pointer border border-b-2 ml-1 px-2 rounded-sm py-0.5 text-w bg-orange-300 hover:bg-orange-400"
+          onClick={resetList}
+        >
           Reset
         </button>
       </div>
@@ -100,7 +109,7 @@ const Body = () => {
           No restaurants match your search.
         </h2>
       ) : (
-        <div className="res-container">
+        <div className="flex flex-wrap ml-6">
           {restaurantList.map((restaurant) => (
             <Link
               key={restaurant.info.id}
