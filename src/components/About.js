@@ -14,13 +14,13 @@ class AboutClass extends React.Component {
   render() {
     console.log("parent render");
     return (
-      <div className="about-us-container">
-        <h1>About Us</h1>
-        <p>
+      <div className="bg-gray-50 p-10 text-center font-sans mt-24">
+        <h1 className="text-5xl font-bold text-gray-800 mb-2">About Us</h1>
+        <p className="text-lg text-gray-600 max-w-4xl mx-auto mb-12 leading-relaxed">
           This is a page about our application and the amazing team behind it.
         </p>
 
-        <div className="team-container">
+        <div className="flex flex-wrap justify-center gap-8 p-5">
           <UserClass
             name={"Tanishq Khandelwal (from About Us)"}
             location={"Bengaluru"}

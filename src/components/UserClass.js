@@ -30,11 +30,18 @@ class UserClass extends React.Component {
     console.log(this.props.name + "child render");
 
     return (
-      <div className="user-card">
-        <img src={avatar_url} />
-        <h2>Name : {name}</h2>
-        <h3>Location : {location}</h3>
-        <h4>{bio}</h4>
+      <div className="bg-white rounded-xl shadow-lg p-8 m-5 text-center max-w-sm min-h-[400px] flex flex-col justify-center items-center font-sans transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:shadow-2xl">
+        <img
+          src={avatar_url}
+          className="w-32 h-32 rounded-full border-4 border-gray-200 object-cover mb-5"
+        />
+        <h2 className="text-2xl font-semibold text-gray-800 mb-1">
+          Name : {name}
+        </h2>
+        <h3 className="text-lg font-normal text-gray-600 mb-1">
+          Location : {location}
+        </h3>
+        <h4 className="text-sm text-gray-500 leading-normal mt-2">{bio}</h4>
       </div>
     );
   }

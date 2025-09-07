@@ -5,7 +5,7 @@ const Header = () => {
   const [logBtn, setLogBtn] = useState("Login");
 
   return (
-    <div className="flex justify-between items-center bg-red-50">
+    <div className="flex justify-between items-center bg-red-50 fixed w-full z-50 top-0 left-0">
       <div>
         <img className="w-30" src={LOGO_URL}></img>
       </div>

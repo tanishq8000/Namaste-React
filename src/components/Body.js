@@ -43,7 +43,9 @@ const Body = () => {
   };
 
   const filterTopRated = () => {
-    const filteredList = originalList.filter((res) => res.info?.avgRating > 4);
+    const filteredList = originalList.filter(
+      (res) => res.info?.avgRating > 4.3
+    );
     setRestaurantList(filteredList);
     setSearchText("");
   };
@@ -71,7 +73,7 @@ const Body = () => {
 
   return (
     <div>
-      <div className="flex items-center mt-3">
+      <div className="flex items-center mt-26">
         <div className="search">
           <input
             type="text"

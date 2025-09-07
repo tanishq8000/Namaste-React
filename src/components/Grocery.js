@@ -1,7 +1,7 @@
 const Grocery = () => {
   return (
     <>
-      <h3>
+      <h3 className="mt-28">
         This is a separate small app inside our Big app with lots of components
       </h3>
       <h4>
