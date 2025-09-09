@@ -5,7 +5,7 @@ const RestaurantCard = ({ resData }) => {
     resData?.info;
 
   return (
-    <div className="w-85 h-93 flex flex-col justify-start border border-black m-3 pb-2 hover:-translate-y-[5px] hover:scale-[1.02] hover:shadow-[0_8px_16px_rgba(0,0,0,0.2)]">
+    <div className="w-85 h-93 flex flex-col justify-start border border-black m-3 pb-2 hover:-translate-y-[5px] hover:scale-[1.02] hover:shadow-[0_8px_16px_rgba(0,0,0,0.2)] -z-10">
       <img
         className="w-[100%] h-50 object-cover"
         alt={`Logo of ${name}`}
@@ -30,6 +30,20 @@ const RestaurantCard = ({ resData }) => {
       </div>
     </div>
   );
+};
+
+// Higher Order Compnent --> takes a comp and returns with some enhancement without changing the code of compo which it takes
+export const withTopRatedLabel = (RestaurantCard) => {
+  return (props) => {
+    return (
+      <div>
+        <label className="absolute p-1 m-1 bg-orange-500 text-white z-10">
+          Top Rated
+        </label>
+        <RestaurantCard {...props} />
+      </div>
+    );
+  };
 };
 
 export default RestaurantCard;

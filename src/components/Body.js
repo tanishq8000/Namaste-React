@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withTopRatedLabel } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
-import { Link } from "react-router-dom";
+import { data, Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import NoInternetPage from "./NoInternetPage";
 
@@ -12,6 +12,8 @@ const Body = () => {
   const [loading, setLoading] = useState(true); // ✅ loading flag
 
   const onlineStatus = useOnlineStatus();
+
+  const RestaurantCardTopRated = withTopRatedLabel(RestaurantCard);
 
   useEffect(() => {
     fetchData();
@@ -117,7 +119,11 @@ const Body = () => {
               key={restaurant.info.id}
               to={"restaurants/" + restaurant.info.id}
             >
-              <RestaurantCard resData={restaurant} />
+              {restaurant.info?.avgRating > 4.6 ? (
+                <RestaurantCardTopRated resData={restaurant} />
+              ) : (
+                <RestaurantCard resData={restaurant} />
+              )}
             </Link>
           ))}
         </div>
