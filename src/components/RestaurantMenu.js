@@ -3,10 +3,13 @@ import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import React from "react";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
+import RestaurantCategory from "./RestaurantCategory";
+import ItemList from "./ItemList";
 
 const RestaurantMenu = () => {
   const [isVegOnly, setIsVegOnly] = useState(false); // New state for the toggle veg only mode
   const { resId } = useParams();
+  const [showIndex, setShowIndex] = useState(null);
 
   const resInfo = useRestaurantMenu(resId);
 
@@ -31,6 +34,8 @@ const RestaurantMenu = () => {
     setIsVegOnly(!isVegOnly);
   };
 
+  console.log(menuSections);
+
   return (
     <div className="flex items-center justify-center h-screen w-full mt-24">
       <div className="w-1/2 min-w-[400px] bg-white rounded-xl shadow-lg p-8 text-center max-h-[90vh] overflow-y-auto">
@@ -51,47 +56,19 @@ const RestaurantMenu = () => {
         </button>
 
         {menuSections && menuSections.length > 0 ? (
-          menuSections.map((section) => {
-            // Conditionally filter items for the "Veg Only" button
-            const filteredItems = isVegOnly
-              ? section.card.card.itemCards.filter(
-                  (item) => item.card.info.isVeg === 1 // 1 means vegetarian in the API
-                )
-              : section.card.card.itemCards;
-
-            // Only render the section if it has items after filtering
-            if (filteredItems.length === 0) {
-              return null;
-            }
-
+          menuSections.map((section, index) => {
             return (
               <React.Fragment key={section.card.card.title}>
-                <h3 className="text-2xl mt-8 mb-4 text-gray-800 border-b border-gray-200 pb-4">
-                  {section.card.card.title}
-                </h3>
-                <ul className="list-none p-0 m-0 text-left">
-                  {filteredItems.map((item) => (
-                    <li
-                      key={item.card.info.id}
-                      className="border-b border-gray-100 p-5 last:border-b-0"
-                    >
-                      <div className="flex justify-between items-baseline mb-1">
-                        <h4 className="text-xl font-semibold text-gray-800 m-0">
-                          {item.card.info.name}
-                        </h4>
-                        <p className="text-lg font-semibold text-gray-700 m-0">
-                          Rs.
-                          {item.card.info.price
-                            ? item.card.info.price / 100
-                            : item.card.info.defaultPrice / 100}
-                        </p>
-                      </div>
-                      <p className="text-sm text-gray-500 leading-normal m-0">
-                        {item.card.info.description}
-                      </p>
-                    </li>
-                  ))}
-                </ul>
+                <RestaurantCategory
+                  data={section.card.card}
+                  veg={isVegOnly}
+                  showItems={index === showIndex ? true : false}
+                  setShowIndex={() => {
+                    index == showIndex
+                      ? setShowIndex(null)
+                      : setShowIndex(index);
+                  }}
+                />
               </React.Fragment>
             );
           })
