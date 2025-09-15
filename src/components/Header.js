@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { LOGO_URL } from "../utils/constant";
 import { Link } from "react-router-dom";
+import UserContext from "../utils/UserContext";
 const Header = () => {
   const [logBtn, setLogBtn] = useState("Login");
+  const { loggedInUser } = useContext(UserContext);
+
+  console.log(loggedInUser);
 
   return (
     <div className="flex justify-between items-center bg-red-50 fixed w-full z-50 top-0 left-0">
@@ -27,9 +31,18 @@ const Header = () => {
           <li className="px-4 hover:text-red-500">Cart</li>
           <li className="px-4">
             <button
-              className="cursor-pointer bg-gray-200 rounded-sm px-2 border border-black-100"
+              className={`
+    cursor-pointer rounded-sm px-2 border
+    ${
+      logBtn === "Login"
+        ? "bg-gray-200 border-black-100" // Classes when not logged in
+        : "bg-green-700 text-white"
+    } // Classes when logged in
+  `}
               onClick={() =>
-                logBtn === "Login" ? setLogBtn("Logout") : setLogBtn("Login")
+                logBtn === "Login"
+                  ? setLogBtn(loggedInUser)
+                  : setLogBtn("Login")
               }
             >
               {logBtn}
