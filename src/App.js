@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -9,19 +9,31 @@ import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Shimmer from "./components/Shimmer";
 import Footer from "./components/Footer";
+import UserContext from "./utils/UserContext";
 
 // Lazy Loading / Dynamic Bunding / Code Splitting / Chunking / OnDemand Loading
 const Grocery = lazy(() => import("./components/Grocery"));
 
 const AppLayout = () => {
+  const [userName, setUserName] = useState();
+
+  useEffect(() => {
+    const data = {
+      nameOfUser: "Tanishq",
+    };
+    setUserName(data.nameOfUser);
+  }, []);
+
   return (
-    <div className="flex flex-col min-h-screen">
-      <Header />
-      <div className="flex-grow">
-        <Outlet />
+    <UserContext.Provider value={{ loggedInUser: userName }}>
+      <div className="flex flex-col min-h-screen">
+        <Header />
+        <div className="flex-grow">
+          <Outlet />
+        </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </UserContext.Provider>
   );
 };
 
