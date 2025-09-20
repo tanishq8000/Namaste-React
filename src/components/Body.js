@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import RestaurantCard, { withTopRatedLabel } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { data, Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import NoInternetPage from "./NoInternetPage";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [restaurantList, setRestaurantList] = useState([]);
@@ -14,6 +15,8 @@ const Body = () => {
   const onlineStatus = useOnlineStatus();
 
   const RestaurantCardTopRated = withTopRatedLabel(RestaurantCard);
+
+  const { loggedInUser, setUserName } = useContext(UserContext);
 
   useEffect(() => {
     fetchData();
@@ -105,6 +108,16 @@ const Body = () => {
         >
           Reset
         </button>
+        <div className="m-4 p-4 flex items-center">
+          <label>UserName : </label>
+          <input
+            className="p-1 m-3 border border-black-100"
+            value={loggedInUser}
+            onChange={(e) => {
+              setUserName(e.target.value);
+            }}
+          />
+        </div>
       </div>
 
       {/* ✅ Show message when no results */}

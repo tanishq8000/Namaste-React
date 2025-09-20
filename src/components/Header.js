@@ -6,8 +6,6 @@ const Header = () => {
   const [logBtn, setLogBtn] = useState("Login");
   const { loggedInUser } = useContext(UserContext);
 
-  console.log(loggedInUser);
-
   return (
     <div className="flex justify-between items-center bg-red-50 fixed w-full z-50 top-0 left-0">
       <div>
@@ -39,13 +37,8 @@ const Header = () => {
         : "bg-green-700 text-white"
     } // Classes when logged in
   `}
-              onClick={() =>
-                logBtn === "Login"
-                  ? setLogBtn(loggedInUser)
-                  : setLogBtn("Login")
-              }
             >
-              {logBtn}
+              {loggedInUser}
             </button>
           </li>
         </ul>

@@ -15,17 +15,17 @@ import UserContext from "./utils/UserContext";
 const Grocery = lazy(() => import("./components/Grocery"));
 
 const AppLayout = () => {
-  const [userName, setUserName] = useState();
+  const [userName, setUserName] = useState("Tanishq");
 
-  useEffect(() => {
-    const data = {
-      nameOfUser: "Tanishq",
-    };
-    setUserName(data.nameOfUser);
-  }, []);
+  // useEffect(() => {
+  //   const data = {
+  //     nameOfUser: "Tanishq",
+  //   };
+  //   setUserName(data.nameOfUser);
+  // }, []);
 
   return (
-    <UserContext.Provider value={{ loggedInUser: userName }}>
+    <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
       <div className="flex flex-col min-h-screen">
         <Header />
         <div className="flex-grow">
