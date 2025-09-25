@@ -10,6 +10,8 @@ import RestaurantMenu from "./components/RestaurantMenu";
 import Shimmer from "./components/Shimmer";
 import Footer from "./components/Footer";
 import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/reduxFiles/appStore";
 
 // Lazy Loading / Dynamic Bunding / Code Splitting / Chunking / OnDemand Loading
 const Grocery = lazy(() => import("./components/Grocery"));
@@ -25,15 +27,17 @@ const AppLayout = () => {
   // }, []);
 
   return (
-    <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
-      <div className="flex flex-col min-h-screen">
-        <Header />
-        <div className="flex-grow">
-          <Outlet />
+    <Provider store={appStore}>
+      <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+        <div className="flex flex-col min-h-screen">
+          <Header />
+          <div className="flex-grow">
+            <Outlet />
+          </div>
+          <Footer />
         </div>
-        <Footer />
-      </div>
-    </UserContext.Provider>
+      </UserContext.Provider>
+    </Provider>
   );
 };
 
