@@ -15,6 +15,9 @@ const ItemList = ({ filteredItems }) => {
               {item.card.info.price
                 ? item.card.info.price / 100
                 : item.card.info.defaultPrice / 100}
+              <button className="ml-4 px-3 py-1 bg-gray-100 text-gray-800 border border-gray-300 rounded-lg text-sm transition-all duration-200 hover:bg-gray-200 hover:shadow-md">
+                Add ➕
+              </button>
             </p>
           </div>
           <p className="text-sm text-gray-500 leading-normal m-0">

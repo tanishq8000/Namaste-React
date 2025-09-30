@@ -2,9 +2,14 @@ import { useContext, useState } from "react";
 import { LOGO_URL } from "../utils/constant";
 import { Link } from "react-router-dom";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
+
 const Header = () => {
   const [logBtn, setLogBtn] = useState("Login");
   const { loggedInUser } = useContext(UserContext);
+
+  // Subscribing to store using a selector in redux
+  const cartItems = useSelector((store) => store.cart.items);
 
   return (
     <div className="flex justify-between items-center bg-red-50 fixed w-full z-50 top-0 left-0">
@@ -26,7 +31,12 @@ const Header = () => {
           <li className="px-4 hover:text-red-500">
             <Link to="/grocery">Grocery</Link>
           </li>
-          <li className="px-4 hover:text-red-500">Cart</li>
+          <li className="px-4 relative">
+            <span className="text-2xl cursor-pointer">🛒</span>
+            <span className="absolute -top-1 -right-0 bg-red-500 text-white text-xs font-bold rounded-full h-4 w-4 flex items-center justify-center">
+              {cartItems.length}
+            </span>
+          </li>
           <li className="px-4">
             <button
               className={`
