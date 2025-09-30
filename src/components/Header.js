@@ -32,7 +32,10 @@ const Header = () => {
             <Link to="/grocery">Grocery</Link>
           </li>
           <li className="px-4 relative">
-            <span className="text-2xl cursor-pointer">🛒</span>
+            <Link to="/cart">
+              <span className="text-2xl cursor-pointer">🛒</span>
+            </Link>
+
             <span className="absolute -top-1 -right-0 bg-red-500 text-white text-xs font-bold rounded-full h-4 w-4 flex items-center justify-center">
               {cartItems.length}
             </span>

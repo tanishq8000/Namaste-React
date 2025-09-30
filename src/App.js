@@ -12,6 +12,7 @@ import Footer from "./components/Footer";
 import UserContext from "./utils/UserContext";
 import { Provider } from "react-redux";
 import appStore from "./utils/reduxFiles/appStore";
+import CartPage from "./components/CartPage";
 
 // Lazy Loading / Dynamic Bunding / Code Splitting / Chunking / OnDemand Loading
 const Grocery = lazy(() => import("./components/Grocery"));
@@ -69,6 +70,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurants/:resId",
         element: <RestaurantMenu />,
+      },
+      {
+        path: "/cart",
+        element: <CartPage />,
       },
     ],
     errorElement: <Error />,
