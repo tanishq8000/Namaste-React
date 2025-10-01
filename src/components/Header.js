@@ -16,7 +16,9 @@ const Header = () => {
       <div>
         <img className="w-30" src={LOGO_URL}></img>
       </div>
-      <h1 className="text-red-500 font-bold text-3xl -ml-150">HungerHub</h1>
+      <h1 className="cursor-pointer text-red-500 font-bold text-3xl -ml-150">
+        <Link to="/">HungerHub</Link>
+      </h1>
       <div className="flex items-center">
         <ul className="flex p-6">
           <li className="px-4 hover:text-red-500">
