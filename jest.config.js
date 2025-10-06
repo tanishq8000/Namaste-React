@@ -28,7 +28,7 @@ const config = {
 
   // An array of regexp pattern strings used to skip coverage collection
   // coveragePathIgnorePatterns: [
-  //   "\\\\node_modules\\\\"
+  //   "\\node_modules\\"
   // ],
 
   // Indicates which provider should be used to instrument code for coverage
@@ -136,7 +136,7 @@ const config = {
   // setupFiles: [],
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
-  // setupFilesAfterEnv: [],
+  setupFilesAfterEnv: ["./jest.setup.js"], // CORRECTED: Add the property here.
 
   // The number of seconds after which a test is considered as slow and reported as such in the results.
   // slowTestThreshold: 5,
@@ -161,7 +161,7 @@ const config = {
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
   // testPathIgnorePatterns: [
-  //   "\\\\node_modules\\\\"
+  //   "\\node_modules\\"
   // ],
 
   // The regexp pattern or array of patterns that Jest uses to detect test files
@@ -178,8 +178,8 @@ const config = {
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [
-  //   "\\\\node_modules\\\\",
-  //   "\\.pnp\\.[^\\\\]+$"
+  //   "\\node_modules\\",
+  //   "\\.pnp\\.[^\\.]+$"
   // ],
 
   // An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them
@@ -195,4 +195,5 @@ const config = {
   // watchman: true,
 };
 
+// CORRECTED: Export the single config object.
 module.exports = config;
