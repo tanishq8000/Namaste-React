@@ -11,6 +11,12 @@ const Header = () => {
   // Subscribing to store using a selector in redux
   const cartItems = useSelector((store) => store.cart.items);
 
+  const handleToggle = () => {
+    {
+      logBtn == "Login" ? setLogBtn(loggedInUser) : setLogBtn("Login");
+    }
+  };
+
   return (
     <div className="flex justify-between items-center bg-red-50 fixed w-full z-50 top-0 left-0">
       <div>
@@ -42,18 +48,12 @@ const Header = () => {
               {cartItems.length}
             </span>
           </li>
-          <li className="px-4">
+          <li className="pl-4">
             <button
-              className={`
-    cursor-pointer rounded-sm px-2 border
-    ${
-      logBtn === "Login"
-        ? "bg-gray-200 border-black-100" // Classes when not logged in
-        : "bg-green-700 text-white"
-    } // Classes when logged in
-  `}
+              className="cursor-pointer rounded-sm px-2 border bg-gray-200 border-black-100"
+              onClick={handleToggle}
             >
-              {loggedInUser}
+              {logBtn === "Login" ? logBtn : loggedInUser}
             </button>
           </li>
         </ul>
