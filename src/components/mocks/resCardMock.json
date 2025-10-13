@@ -1,0 +1,81 @@
+{
+  "info": {
+    "id": "49829",
+    "name": "Ibaco",
+    "cloudinaryImageId": "ahwxl8bxa0ssjsyo5uy4",
+    "locality": "HSR Layout",
+    "areaName": "HSR Layout",
+    "costForTwo": "₹800 for two",
+    "cuisines": ["Desserts"],
+    "avgRating": 4.7,
+    "veg": true,
+    "parentId": "3481",
+    "avgRatingString": "4.7",
+    "totalRatingsString": "2.8K+",
+    "sla": {
+      "deliveryTime": 47,
+      "lastMileTravel": 5,
+      "serviceability": "SERVICEABLE",
+      "slaString": "45-50 mins",
+      "lastMileTravelString": "5.0 km",
+      "iconType": "ICON_TYPE_EMPTY"
+    },
+    "availability": {
+      "nextCloseTime": "2025-10-13 23:00:00",
+      "opened": true
+    },
+    "badges": {
+      "imageBadges": [
+        {
+          "imageId": "newg.png",
+          "description": "Gourmet"
+        }
+      ]
+    },
+    "isOpen": true,
+    "aggregatedDiscountInfoV2": {},
+    "type": "F",
+    "badgesV2": {
+      "entityBadges": {
+        "imageBased": {
+          "badgeObject": [
+            {
+              "attributes": {
+                "description": "Gourmet",
+                "imageId": "newg.png"
+              }
+            }
+          ]
+        },
+        "textBased": {},
+        "textExtendedBadges": {}
+      }
+    },
+    "differentiatedUi": {
+      "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+      "differentiatedUiMediaDetails": {
+        "lottie": {},
+        "video": {}
+      }
+    },
+    "reviewsSummary": {},
+    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+    "restaurantOfferPresentationInfo": {},
+    "externalRatings": {
+      "aggregatedRating": {
+        "rating": "4.3",
+        "ratingCount": "1.2K+"
+      },
+      "source": "GOOGLE",
+      "sourceIconImageId": "v1704440323/google_ratings/rating_google_tag"
+    },
+    "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+  },
+  "analytics": {
+    "context": "seo-data-768725e8-b90a-4fb0-b12b-893c5904ac40"
+  },
+  "cta": {
+    "link": "https://www.swiggy.com/city/bangalore/ibaco-hsr-layout-rest49829",
+    "type": "WEBLINK"
+  }
+}

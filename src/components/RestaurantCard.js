@@ -1,6 +1,7 @@
 import { RES_URL } from "../utils/constant";
 
 const RestaurantCard = ({ resData }) => {
+  //console.log(resData);
   const { cloudinaryImageId, name, cuisines, avgRating, costForTwo, sla } =
     resData?.info;
 
