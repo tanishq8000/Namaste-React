@@ -6,7 +6,10 @@ const RestaurantCard = ({ resData }) => {
     resData?.info;
 
   return (
-    <div className="w-85 h-93 flex flex-col justify-start border border-black m-3 pb-2 hover:-translate-y-[5px] hover:scale-[1.02] hover:shadow-[0_8px_16px_rgba(0,0,0,0.2)] -z-10">
+    <div
+      data-testid="resCard"
+      className="w-85 h-93 flex flex-col justify-start border border-black m-3 pb-2 hover:-translate-y-[5px] hover:scale-[1.02] hover:shadow-[0_8px_16px_rgba(0,0,0,0.2)] -z-10"
+    >
       <img
         className="w-[100%] h-50 object-cover"
         alt={`Logo of ${name}`}
