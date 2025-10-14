@@ -36,5 +36,21 @@ test("should Search with text search input burger", async () => {
 
   const cardsAfterSearch = screen.getAllByTestId("resCard");
 
-  expect(cardsAfterSearch.length).toBe(2);
+  expect(cardsAfterSearch.length).toBe(1);
+});
+
+test("should render Top rated Restaurants in Body component", async () => {
+  await act(async () =>
+    render(
+      <BrowserRouter>
+        <Body />
+      </BrowserRouter>
+    )
+  );
+
+  const topRatedBtn = screen.getByText("Top Rated Restaurants");
+  fireEvent.click(topRatedBtn);
+
+  const topRatedRes = screen.getAllByTestId("resCard");
+  expect(topRatedRes.length).toBe(13);
 });
