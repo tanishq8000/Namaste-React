@@ -23,6 +23,7 @@ const ItemList = ({ filteredItems }) => {
 
         return (
           <li
+            data-testid="foodItem"
             key={item.card.info.id}
             className="flex justify-between items-center border-b border-gray-100 p-5 last:border-b-0"
           >

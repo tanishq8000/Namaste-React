@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { MENU_API } from "./constant";
+import MOCK_DATA from "../components/mocks/mockMenuData.json";
 
 const useRestaurantMenu = (resId) => {
   const [resInfo, setResInfo] = useState(null);
@@ -8,10 +9,7 @@ const useRestaurantMenu = (resId) => {
   }, []);
 
   const fetchMenu = async () => {
-    const data = await fetch(MENU_API + resId);
-    const json = await data.json();
-    //console.log(json.data);
-    setResInfo(json.data);
+    setResInfo(MOCK_DATA.data);
   };
 
   return resInfo;

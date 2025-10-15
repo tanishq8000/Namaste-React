@@ -45,7 +45,7 @@ const Header = () => {
             </Link>
 
             <span className="absolute -top-1 -right-0 bg-red-500 text-white text-xs font-bold rounded-full h-4 w-4 flex items-center justify-center">
-              {cartItems.length}
+              {cartItems.length}*
             </span>
           </li>
           <li className="pl-4">

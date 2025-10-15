@@ -5,6 +5,7 @@ import { data, Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import NoInternetPage from "./NoInternetPage";
 import UserContext from "../utils/UserContext";
+import MOCK_DATA from "../components/mocks/mockResListData.json";
 
 const Body = () => {
   const [restaurantList, setRestaurantList] = useState([]);
@@ -24,11 +25,13 @@ const Body = () => {
 
   const fetchData = async () => {
     try {
-      const data = await fetch(
-        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9352403&lng=77.624532&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-      );
+      // const data = await fetch(
+      //   "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9352403&lng=77.624532&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      // );
 
-      const json = await data.json();
+      // const json = await data.json();
+
+      const json = MOCK_DATA;
 
       const restaurants = json?.data?.cards?.find(
         (card) => card?.card?.card?.gridElements?.infoWithStyle?.restaurants

@@ -34,7 +34,7 @@ const RestaurantMenu = () => {
     setIsVegOnly(!isVegOnly);
   };
 
-  console.log(menuSections);
+  //console.log(menuSections);
 
   return (
     <div className="flex items-center justify-center h-screen w-full mt-24">
